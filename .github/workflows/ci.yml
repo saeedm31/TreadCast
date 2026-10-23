@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements-train.txt
+      - run: pytest -q
+      - name: Quick pipeline run with the 1D CNN
+        run: python -m treadcast --fast --out /tmp/artifacts
+
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build the training image and run the tests inside it
+        run: |
+          docker build --target train -t treadcast-train .
+          docker run --rm treadcast-train python -m pytest -q
+      - name: Build the app image and check that it starts
+        run: |
+          docker build --target app -t treadcast-app .
+          docker run -d --name app -p 8501:8501 treadcast-app
+          for i in $(seq 1 30); do curl -fs http://localhost:8501/_stcore/health && break; sleep 2; done
+          curl -fs http://localhost:8501/_stcore/health
+          docker inspect --format '{{.Config.User}}' treadcast-app
+          docker logs app
+      - run: docker compose config --quiet
