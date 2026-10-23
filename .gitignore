@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+data/
+# model files are built by the pipeline (CI keeps them as workflow artifacts)
+artifacts/*.joblib
+artifacts/*.pt

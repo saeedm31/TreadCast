@@ -1,0 +1,11 @@
+[project]
+name = "treadcast"
+version = "0.1.0"
+description = "Tread depth and remaining mileage of truck tires from an in-tire acceleration sensor (simulated fleet)."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

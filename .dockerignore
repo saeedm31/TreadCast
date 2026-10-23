@@ -1,0 +1,10 @@
+.git
+.github
+**/__pycache__
+**/*.pyc
+.pytest_cache
+data/
+*.ipynb
+docs/
+artifacts/*.joblib
+artifacts/*.pt

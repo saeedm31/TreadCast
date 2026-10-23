@@ -1,0 +1,20 @@
+# docker compose run --rm pipeline   -> simulate, train, score; writes ./artifacts
+# docker compose up app              -> http://localhost:8501
+services:
+  pipeline:
+    build:
+      context: .
+      target: train
+    volumes:
+      - ./artifacts:/app/artifacts
+    profiles: ["train"]
+
+  app:
+    build:
+      context: .
+      target: app
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./artifacts:/app/artifacts:ro
+    restart: unless-stopped
