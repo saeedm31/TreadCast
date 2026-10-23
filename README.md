@@ -8,7 +8,7 @@
 [![Docker](https://img.shields.io/badge/Docker-ready-2496ED?logo=docker)](#-run-it-with-docker)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
-▶️ **Live app:** _link follows after the first deploy_ · 🧠 **[How it works](#-how-it-works)** · 🐳 **[Run with Docker](#-run-it-with-docker)** · 📄 **[Approach in detail](docs/approach.md)**
+▶️ **[Live app](https://sh-treadcast.streamlit.app)** · 🧠 **[How it works](#-how-it-works)** · 🐳 **[Run with Docker](#-run-it-with-docker)** · 📄 **[Approach in detail](docs/approach.md)**
 
 > **Simulated data.** There is no public data from in-tire sensors, so a physics-based simulator stands in for a
 > truck fleet. That has one big advantage: the true tread depth is known every day, so every model can be scored
@@ -63,7 +63,23 @@ flowchart LR
 Scored on the held-out trucks (tires the models never saw). Full report in the app's **Model report** tab and in
 [`artifacts/metrics.json`](artifacts/metrics.json), rebuilt by GitHub Actions on every change.
 
-_Results table follows after the first pipeline run._
+**Tread depth error** (mean absolute error vs the true depth, every day of 29 unseen tires):
+
+| Model | Error (mm) |
+|---|---|
+| Mileage only (the baseline) | 1.62 |
+| Gradient boosting, context only (speed, load, pressure, mileage...) | 1.14 |
+| + physics features (rolling radius, contact patch) | 0.68 |
+| + signal features (spikes, edges, ringing) | 0.53 |
+| 1D CNN alone, on the raw template | 0.43 |
+| + CNN output (final daily model) | 0.32 |
+| **+ per-tire tracker (what the app shows)** | **0.22** |
+
+- **Against real gauge readings:** 0.32 mm, vs 1.82 mm for mileage only.
+- **Forward in time** (only days after the training cutoff): 0.26 mm, vs 2.02 mm.
+- **Km left:** typical error 6%. The *safe* km left, which errs towards changing early, is too high on 14% of days.
+- **Safety:** of the days a tire drove below 3 mm, TreadCast had flagged **92%**; service checks alone, **8%**.
+- **Hardest case:** urban trucks at low speed (0.37 mm), where the tread ringing is harder to read.
 
 ## 🖥️ The app
 
