@@ -202,9 +202,11 @@ with report_tab:
     r, s = metrics["remaining"], metrics["safety"]
     k1, k2, k3, k4 = st.columns(4)
     k1.metric("Km left: typical error", f"{100 * r['median_rel_error']:.0f}%")
-    k2.metric("Safe km left too high", f"{100 * r['safe_over_estimate_rate']:.0f}% of days")
+    k2.metric("Safe km left too high (days)", f"{100 * r['safe_over_estimate_rate']:.0f}%",
+              help="Share of days where the safe km-left estimate was higher than the true km left.")
     k3.metric("Days below 3 mm flagged", f"{100 * s.get('tracker_flagged_share', 0):.0f}%",
-              f"service checks only: {100 * s.get('service_only_flagged_share', 0):.0f}%", delta_color="off")
+              f"checks only: {100 * s.get('service_only_flagged_share', 0):.0f}%", delta_color="off",
+              help="Days a tire was below 3 mm and TreadCast had flagged it, vs relying on service checks only.")
     gc = metrics.get("gauge_check", {})
     if gc:
         k4.metric("Error vs gauge readings", f"{gc['Tracker (final)']['mae']:.2f} mm",
