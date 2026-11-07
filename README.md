@@ -10,6 +10,8 @@
 
 ▶️ **[Live app](https://sh-treadcast.streamlit.app)** · 🧠 **[How it works](#-how-it-works)** · 🐳 **[Run with Docker](#-run-it-with-docker)** · 📄 **[Approach in detail](docs/approach.md)**
 
+📚 **Documentation:** [architecture](docs/architecture.md) · [approach](docs/approach.md) · [model card](docs/model_card.md) · [data card](docs/data_card.md)
+
 > **Simulated data.** There is no public data from in-tire sensors, so a physics-based simulator stands in for a
 > truck fleet. That has one big advantage: the true tread depth is known every day, so every model can be scored
 > honestly. The numbers show the method works on the simulation, not that it works on real tires.
@@ -32,6 +34,11 @@ It is hard because:
 
 ## 🧠 How it works
 
+![How TreadCast works](docs/architecture.svg)
+
+<details>
+<summary>Same flow as a Mermaid diagram</summary>
+
 ```mermaid
 flowchart LR
   S["In-tire sensor<br/>radial acceleration<br/>median of 1000s of wheel turns"] --> F["Features<br/>physics · signal · context"]
@@ -42,6 +49,8 @@ flowchart LR
   G --> K["Per-tire tracker<br/>Kalman filter"]
   K --> O["Depth ± range<br/>wear rate<br/>safe km left"]
 ```
+
+</details>
 
 1. **Sensor signal.** Each wheel turn the sensor reads about v²/R off the road, drops to ~0 g in the contact patch,
    and spikes at entry and exit. Lining up thousands of steady turns by angle and taking the median removes the
@@ -130,6 +139,7 @@ treadcast/
   evaluate.py          scores on held-out trucks
   pipeline.py          end to end; python -m treadcast
 app.py                 Streamlit app
+docs/                  architecture, approach, model card, data card
 Dockerfile, docker-compose.yml
 .github/workflows/     CI (tests, Docker build, app health check) and the training pipeline
 ```

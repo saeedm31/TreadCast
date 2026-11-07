@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1008" viewBox="0 0 1600 1008" role="img" aria-labelledby="t d" fill="#13262A"><title id="t">How TreadCast works</title><desc id="d">A sensor inside each truck tire sends a daily template of radial acceleration. Features, a 1D CNN and gradient boosting estimate the daily tread depth; a per-tire Kalman filter gives depth, wear rate and km left.</desc><defs><marker id="head" orient="auto" markerWidth="5" markerHeight="5" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#5E6B6E"/></marker></defs><style>text{font-family:Inter, 'Segoe UI', Helvetica, Arial, sans-serif}.h{font-family:'Space Grotesk', Inter, 'Segoe UI', Helvetica, Arial, sans-serif}</style><rect width="1600" height="1008" fill="#F6F5F1"/><text x="64" y="98" font-size="40" class="h" font-weight="700">How TreadCast works</text>
+<text x="64" y="148" font-size="18" fill="#3F4D50">From a sensor inside the tire to tread depth and safe km left, every day, for every tire of the fleet.</text>
+<text x="64" y="176" font-size="18" fill="#3F4D50">Simulated fleet: the true depth is known every day, so every model is scored honestly.</text>
+<rect x="968.5" y="64.5" width="95" height="35" rx="18" fill="#E3EAEC" stroke="#9FB3B8"/>
+<text x="1016" y="87" font-size="14" font-weight="600" fill="#23414A" text-anchor="middle">Data</text>
+<rect x="1076.5" y="64.5" width="147" height="35" rx="18" fill="#FFFFFF" stroke="#C9C4B6"/>
+<text x="1150" y="87" font-size="14" font-weight="600" text-anchor="middle">On the sensor</text>
+<rect x="1236.5" y="64.5" width="159" height="35" rx="18" fill="#D6EEEB" stroke="#5FA39E"/>
+<text x="1316" y="87" font-size="14" font-weight="600" fill="#0B4F52" text-anchor="middle">Machine learning</text>
+<rect x="1408.5" y="64.5" width="127" height="35" rx="18" fill="#ECE6F7" stroke="#9C88D2"/>
+<text x="1472" y="87" font-size="14" font-weight="600" fill="#45307A" text-anchor="middle">Fleet team</text>
+<line x1="288" y1="360" x2="372" y2="360" stroke="#5E6B6E" stroke-width="2" stroke-linecap="round" marker-end="url(#head)"/>
+<line x1="600" y1="360" x2="684" y2="360" stroke="#5E6B6E" stroke-width="2" stroke-linecap="round" marker-end="url(#head)"/>
+<line x1="912" y1="360" x2="996" y2="360" stroke="#5E6B6E" stroke-width="2" stroke-linecap="round" marker-end="url(#head)"/>
+<line x1="1224" y1="360" x2="1308" y2="360" stroke="#5E6B6E" stroke-width="2" stroke-linecap="round" marker-end="url(#head)"/>
+<line x1="176" y1="552" x2="176" y2="504" stroke="#5E6B6E" stroke-width="2" stroke-linecap="round"/>
+<line x1="176" y1="504" x2="725" y2="504" stroke="#5E6B6E" stroke-width="2" stroke-linecap="round"/>
+<line x1="725" y1="504" x2="725" y2="460" stroke="#5E6B6E" stroke-width="2" stroke-linecap="round" marker-end="url(#head)"/>
+<line x1="837" y1="456" x2="837" y2="548" stroke="#5E6B6E" stroke-width="2" stroke-linecap="round" marker-end="url(#head)"/>
+<line x1="912" y1="644" x2="1112" y2="644" stroke="#5E6B6E" stroke-width="2" stroke-linecap="round"/>
+<line x1="1112" y1="644" x2="1112" y2="460" stroke="#5E6B6E" stroke-width="2" stroke-linecap="round" marker-end="url(#head)"/>
+<line x1="1424" y1="456" x2="1424" y2="548" stroke="#5E6B6E" stroke-width="2" stroke-linecap="round" marker-end="url(#head)"/>
+<text x="64" y="244" font-size="12" font-weight="600" fill="#4E5B5E" letter-spacing="1.4">1 · MEASURE</text>
+<text x="376" y="244" font-size="12" font-weight="600" fill="#4E5B5E" letter-spacing="1.4">2 · ON THE SENSOR</text>
+<text x="688" y="244" font-size="12" font-weight="600" fill="#4E5B5E" letter-spacing="1.4">3 · FEATURES</text>
+<text x="1000" y="244" font-size="12" font-weight="600" fill="#4E5B5E" letter-spacing="1.4">4 · DAILY DEPTH (ML)</text>
+<text x="1312" y="244" font-size="12" font-weight="600" fill="#4E5B5E" letter-spacing="1.4">5 · TRACK EACH TIRE</text>
+<rect x="64.5" y="264.5" width="223" height="191" rx="14" fill="#E3EAEC" stroke="#9FB3B8"/>
+<g transform="translate(164,289)" fill="none" stroke="#23414A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h3l3-8 4 16 3-10 2 2h5"/></g>
+<text x="176" y="337" font-size="18" class="h" font-weight="700" fill="#23414A" text-anchor="middle">In-tire sensor</text>
+<text x="176" y="359" font-size="15" text-anchor="middle">Radial acceleration</text>
+<text x="176" y="381" font-size="15" text-anchor="middle">inside the liner,</text>
+<text x="176" y="403" font-size="15" text-anchor="middle">plus pressure and</text>
+<text x="176" y="425" font-size="15" text-anchor="middle">temperature</text>
+<rect x="376.5" y="264.5" width="223" height="191" rx="14" fill="#FFFFFF" stroke="#C9C4B6"/>
+<g transform="translate(476,289)" fill="none" stroke="#13262A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 1v4M15 1v4M9 19v4M15 19v4M1 9h4M1 15h4M19 9h4M19 15h4"/></g>
+<text x="488" y="337" font-size="18" class="h" font-weight="700" text-anchor="middle">On the sensor</text>
+<text x="488" y="359" font-size="15" text-anchor="middle">Keeps steady turns,</text>
+<text x="488" y="381" font-size="15" text-anchor="middle">lines them up by</text>
+<text x="488" y="403" font-size="15" text-anchor="middle">angle, sends one</text>
+<text x="488" y="425" font-size="15" text-anchor="middle">median template</text>
+<rect x="688.5" y="264.5" width="223" height="191" rx="14" fill="#D6EEEB" stroke="#5FA39E"/>
+<g transform="translate(788,289)" fill="none" stroke="#0B4F52" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20M5 20V11M10 20V5M15 20v-7M20 20V8"/></g>
+<text x="800" y="337" font-size="18" class="h" font-weight="700" fill="#0B4F52" text-anchor="middle">Features</text>
+<text x="800" y="359" font-size="15" text-anchor="middle">Physics: radius,</text>
+<text x="800" y="381" font-size="15" text-anchor="middle">contact patch.</text>
+<text x="800" y="403" font-size="15" text-anchor="middle">Signal: spikes,</text>
+<text x="800" y="425" font-size="15" text-anchor="middle">ringing + context</text>
+<rect x="1000.5" y="264.5" width="223" height="191" rx="14" fill="#D6EEEB" stroke="#5FA39E"/>
+<g transform="translate(1100,289)" fill="none" stroke="#0B4F52" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20M5 20V11M10 20V5M15 20v-7M20 20V8"/></g>
+<text x="1112" y="337" font-size="18" class="h" font-weight="700" fill="#0B4F52" text-anchor="middle">Gradient boosting</text>
+<text x="1112" y="359" font-size="15" text-anchor="middle">Fuses all features</text>
+<text x="1112" y="381" font-size="15" text-anchor="middle">into daily depth.</text>
+<text x="1112" y="403" font-size="15" text-anchor="middle">Mileage can only</text>
+<text x="1112" y="425" font-size="15" text-anchor="middle">push depth down</text>
+<rect x="1312.5" y="264.5" width="223" height="191" rx="14" fill="#D6EEEB" stroke="#5FA39E"/>
+<g transform="translate(1412,289)" fill="none" stroke="#0B4F52" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 0 0-14.9-3M4 4v4h4"/><path d="M4 13a8 8 0 0 0 14.9 3M20 20v-4h-4"/></g>
+<text x="1424" y="337" font-size="18" class="h" font-weight="700" fill="#0B4F52" text-anchor="middle">Per-tire tracker</text>
+<text x="1424" y="359" font-size="15" text-anchor="middle">Kalman filter: depth</text>
+<text x="1424" y="381" font-size="15" text-anchor="middle">and wear rate with</text>
+<text x="1424" y="403" font-size="15" text-anchor="middle">a 95% range. Km left</text>
+<text x="1424" y="425" font-size="15" text-anchor="middle">= (depth - limit) / rate</text>
+<rect x="64.5" y="552.5" width="223" height="183" rx="14" fill="#E3EAEC" stroke="#9FB3B8"/>
+<g transform="translate(164,584)" fill="none" stroke="#23414A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M3 15h18M9 4v16"/></g>
+<text x="176" y="632" font-size="18" class="h" font-weight="700" fill="#23414A" text-anchor="middle">Vehicle data</text>
+<text x="176" y="654" font-size="15" text-anchor="middle">GPS distance,</text>
+<text x="176" y="676" font-size="15" text-anchor="middle">load and speed</text>
+<text x="176" y="698" font-size="15" text-anchor="middle">from telematics</text>
+<rect x="688.5" y="552.5" width="223" height="183" rx="14" fill="#D6EEEB" stroke="#5FA39E"/>
+<g transform="translate(788,573)" fill="none" stroke="#0B4F52" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h3l3-8 4 16 3-10 2 2h5"/></g>
+<text x="800" y="621" font-size="18" class="h" font-weight="700" fill="#0B4F52" text-anchor="middle">1D CNN (PyTorch)</text>
+<text x="800" y="643" font-size="15" text-anchor="middle">Reads the raw 256-</text>
+<text x="800" y="665" font-size="15" text-anchor="middle">point template and</text>
+<text x="800" y="687" font-size="15" text-anchor="middle">conditions; no</text>
+<text x="800" y="709" font-size="15" text-anchor="middle">mileage on purpose</text>
+<rect x="1312.5" y="552.5" width="223" height="183" rx="14" fill="#ECE6F7" stroke="#9C88D2"/>
+<g transform="translate(1412,573)" fill="none" stroke="#45307A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-3.9 3.1-7 7-7s7 3.1 7 7"/><path d="M16 11l2 2 4-4"/></g>
+<text x="1424" y="621" font-size="18" class="h" font-weight="700" fill="#45307A" text-anchor="middle">Fleet team</text>
+<text x="1424" y="643" font-size="15" text-anchor="middle">Depth ± range, safe</text>
+<text x="1424" y="665" font-size="15" text-anchor="middle">km left and a status:</text>
+<text x="1424" y="687" font-size="15" text-anchor="middle">replace now, plan a</text>
+<text x="1424" y="709" font-size="15" text-anchor="middle">change, or OK</text>
+<rect x="64.5" y="784.5" width="1471" height="159" rx="14" fill="#FFFFFF" stroke="#C9C4B6"/>
+<g transform="translate(92,793)" fill="none" stroke="#13262A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></g>
+<text x="92" y="841" font-size="18" class="h" font-weight="700">How it is tested</text>
+<text x="92" y="863" font-size="15">Three whole trucks, one per route type, are held out; training only uses days before a cutoff date.</text>
+<text x="92" y="885" font-size="15">Scores use the true depth from the simulator and real gauge readings, never the interpolated training labels.</text>
+<text x="92" y="907" font-size="15">The baseline to beat is mileage only. GitHub Actions rebuilds the models and the metrics on every change.</text>
+<text x="92" y="929" font-size="15">Safe km left uses the low end of the 95% range, so it errs towards changing a tire early.</text>
+<text x="332" y="344" font-size="13" fill="#4E5B5E" text-anchor="middle">signal</text>
+<text x="644" y="344" font-size="13" fill="#4E5B5E" text-anchor="middle">template</text>
+<text x="956" y="344" font-size="13" fill="#4E5B5E" text-anchor="middle">features</text>
+<text x="1268" y="344" font-size="13" fill="#4E5B5E" text-anchor="middle">daily depth</text>
+<text x="450" y="488" font-size="13" fill="#4E5B5E" text-anchor="middle">GPS km, load</text>
+<text x="849" y="508" font-size="13" fill="#4E5B5E">template</text>
+<text x="1012" y="628" font-size="13" fill="#4E5B5E" text-anchor="middle">CNN depth</text>
+<text x="1436" y="508" font-size="13" fill="#4E5B5E">status</text></svg>
